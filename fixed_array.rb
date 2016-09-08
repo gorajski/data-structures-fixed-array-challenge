@@ -11,7 +11,7 @@ class FixedArray
 
 
 	def get(index)
-		if index < @array.length && index > -1
+		if index > -1 && index < @array.length
 			@array[index]
 		else
 			raise ArgumentError.new("Index out of bounds")
@@ -20,7 +20,11 @@ class FixedArray
 
 
 	def set(index, element)
-		@array[index] = element
+		if index > -1 && index < @array.length
+			@array[index] = element
+		else
+			raise ArgumentError.new("Index out of bounds")
+		end
 	end
 
 end
